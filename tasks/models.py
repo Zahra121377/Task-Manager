@@ -41,3 +41,14 @@ class Task(models.Model):
     priority = models.CharField(
         max_length=10, choices=PRIORITY_CHOICES, default="Medium", editable=True
     )
+
+    @property
+    def remaining_time(self):
+        now = timezone.now()
+        time_difference = self.due_date - now
+        days = time_difference.days
+        hours = int(time_difference.seconds / 3600)
+        return f"{days} days and {hours} hours"
+
+    def __str__(self) -> str:
+        return self.title
