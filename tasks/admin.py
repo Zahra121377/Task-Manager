@@ -11,3 +11,4 @@ admin.site.unregister(User)
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
     list_display = ("title", "completed", "remaining_time", "priority")
+    list_filter = ["completed"]
