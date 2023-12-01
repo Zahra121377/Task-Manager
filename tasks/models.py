@@ -11,7 +11,6 @@ def validate_date(due_date):
         raise ValidationError("This date can not be in the past")
 
 
-# Create your models here.
 class Task(models.Model):
     title = models.CharField(
         max_length=100,
@@ -25,7 +24,7 @@ class Task(models.Model):
         default="I shoud do it",
         editable=True,
         blank=True,
-        validators=[MinLengthValidator(limit_value=20)],
+        validators=[MinLengthValidator(limit_value=10)],
     )
     created_at = models.DateTimeField(auto_now_add=True)
     completed = models.BooleanField(default=False, editable=True)

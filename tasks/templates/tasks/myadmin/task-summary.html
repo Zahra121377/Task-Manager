@@ -1,0 +1,12 @@
+{% extends 'admin/base_site.html' %}
+
+{% block content %}
+    <div class="task-list">
+        <h2>Task List</h2>
+        <ul>
+            {% for task in tasks %}
+                <li>{{ task.title }} - {{ task.description }} (Completed: {{ task.completed }})</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
